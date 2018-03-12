@@ -1,0 +1,24 @@
+Criar arquivo .npmrc
+registry=http://nexus.cesed.local/repository/npm-public/
+
+TODO:
+ng new loja-angular
+cd loja-angular
+ng serve --open
+ng g c lista-produtos
+ng g c detalhe-produto
+ng g class produto
+ng g service produto
+ng g c barra-de-navegacao
+ng g c rodape
+ng g s carrinho
+ng g c carrinho
+
+npm install --save bootstrap@next
+
+No styles.css:
+    @import "~bootstrap/dist/css/bootstrap.css";
+
+Configurando as rotas:
+    No app.module.ts:
+        import { RouterModule, Routes } from '@angular/router';

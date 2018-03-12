@@ -1,0 +1,14 @@
+<div class="card-deck mb-3 text-center">
+  <div class="card mb-4 box-shadow">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">{{produto.titulo}}</h4>
+    </div>
+    <div class="card-body">
+      <img [src]="produto.foto"/>
+      <h3>{{produto.descricao}}</h3>
+      <h1 class="card-title pricing-card-title">R$ {{produto.preco}}</h1>
+      <button type="button" class="btn btn-lg btn-block btn-primary" (click)="comprar(produto)">Comprar</button>
+    </div>
+  </div>
+</div>
+  

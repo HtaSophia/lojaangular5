@@ -1,0 +1,7 @@
+<a [routerLink]="['/produtos']">&lt;&lt;Início</a>
+<ul>
+  <li *ngFor="let p of produtos">
+    {{p.titulo}} - R$ {{p.preco}} <button (click)="detalhe(p)">Detalhe</button>
+  </li>
+</ul>
+<h3>Total: R$ {{total}}</h3>

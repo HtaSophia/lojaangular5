@@ -1,0 +1,14 @@
+<div class="card-deck mb-3 text-center">
+  <div class="card mb-4 box-shadow" *ngFor="let p of produtos | async">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">{{p.titulo}}</h4>
+    </div>
+    <div class="card-body">
+      <a [routerLink]="['/produtos', p.id]">
+        <img [src]="p.foto"/>
+      </a>
+      <h1 class="card-title pricing-card-title">R$ {{p.preco}}</h1>
+      <button type="button" class="btn btn-lg btn-block btn-primary" (click)="comprar(p)">Comprar</button>
+    </div>
+  </div>
+</div>

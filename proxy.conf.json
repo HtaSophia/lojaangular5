@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://api.flickr.com",
+      "secure": false
+    }
+  }
