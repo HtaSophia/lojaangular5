@@ -23,7 +23,7 @@ export class DetalheProdutoComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.switchMap((params: ParamMap) =>
-      this.produtoService.getProduto(+params.get('id'))
+      this.produtoService.getProduto(params.get('id'))
     ).subscribe(p => this.produto = p);
   }
 

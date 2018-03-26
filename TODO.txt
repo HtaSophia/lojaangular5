@@ -1,6 +1,3 @@
-Criar arquivo .npmrc
-registry=http://nexus.cesed.local/repository/npm-public/
-
 TODO:
 ng new loja-angular
 cd loja-angular

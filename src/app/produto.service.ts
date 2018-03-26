@@ -15,33 +15,43 @@ export class ProdutoService {
   constructor(private http: Http) { }
 
   getProdutos(): Observable<Produto[]> {
-    return Observable.from([PRODUTOS]);
-  }
-
-  getProduto(id: number): Observable<Produto> {
-    return Observable.from([PRODUTOS[id]]);
-  }
-
-  getFotos(nome: string): Observable<Produto[]> {
-    var url = `/api/services/feeds/photos_public.gne?tags=${nome}&format=json&nojsoncallback=1`;
+    var url = `http://localhost:9000/produtos`;
 
     return this.http.get(url)
       .map((response: Response) => {
         var dados: any = response.json();
-        return dados.items.map((item) => {
-          return {
-            titulo: item.title,
-            descricao: item.description,
-            foto: item.media.m
-          };
+        return dados.map((item) => {
+          return this.mapeiaProduto(item);
         });
       })
       .do(dados => console.log('Dados retornados: ' + JSON.stringify(dados)))
       .catch(this.trataErro);
   }
 
+  getProduto(id: string): Observable<Produto> {
+    var url = `http://localhost:9000/produtos/${id}`;
+
+    return this.http.get(url)
+      .map((response: Response) => {
+        var item: any = response.json();        
+        return this.mapeiaProduto(item);
+      })
+      .do(dados => console.log('Dados retornados: ' + JSON.stringify(dados)))
+      .catch(this.trataErro);    
+  }
+
   private trataErro(erro: Response) {
     console.error(erro);
     return Observable.throw(erro.json().error || 'Erro no servidor');
+  }
+
+  private mapeiaProduto(item: any): Produto {
+    return {
+      id: item.id,
+      titulo: item.nome,
+      descricao: item.descricao,
+      foto: item.foto,
+      preco: item.preco
+    };
   }
 }

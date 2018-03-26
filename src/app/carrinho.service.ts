@@ -5,10 +5,15 @@ import { Produto } from './produto';
 export class CarrinhoService {
   produtos: Produto[] = [];
 
-  constructor() { }
+  constructor() {
+    if (localStorage.getItem('carrinho')) {
+      this.produtos = <Produto[]>JSON.parse(localStorage.getItem('carrinho'));
+    }
+  }
 
   adicionar(produto: Produto) {
     this.produtos.push(produto);
+    localStorage.setItem('carrinho', JSON.stringify(this.produtos));
   }
 
   getProdutos(): Produto[] {

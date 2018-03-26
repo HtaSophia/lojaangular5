@@ -7,7 +7,7 @@
       <a [routerLink]="['/produtos', p.id]">
         <img [src]="p.foto"/>
       </a>
-      <h1 class="card-title pricing-card-title">R$ {{p.preco}}</h1>
+      <h1 class="card-title pricing-card-title">{{p.preco | currency:'BRL'}}</h1>
       <button type="button" class="btn btn-lg btn-block btn-primary" (click)="comprar(p)">Comprar</button>
     </div>
   </div>
