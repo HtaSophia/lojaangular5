@@ -14,7 +14,7 @@ import { CarrinhoService } from '../carrinho.service';
   styleUrls: ['./detalhe-produto.component.css']
 })
 export class DetalheProdutoComponent implements OnInit {
-  private produto: Produto;
+  produto: Produto;
 
   constructor(private route: ActivatedRoute, 
               private router: Router, 

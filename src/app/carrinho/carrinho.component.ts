@@ -11,8 +11,8 @@ import { CarrinhoService } from '../carrinho.service';
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
-  private produtos: Produto[] = [];
-  private total: number = 0;
+  produtos: Produto[] = [];
+  total: number = 0;
 
   constructor(private route: ActivatedRoute, 
               private router: Router, 
