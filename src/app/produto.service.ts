@@ -10,12 +10,14 @@ import 'rxjs/add/observable/from';
 import { Produto } from './produto';
 import { PRODUTOS } from './mock/produtos';
 
+const URL_BASE = 'https://backlojatap2018-1.herokuapp.com/produtos';
+
 @Injectable()
-export class ProdutoService {
+export class ProdutoService {  
   constructor(private http: Http) { }
 
   getProdutos(): Observable<Produto[]> {
-    var url = `http://localhost:9000/produtos`;
+    var url = `${URL_BASE}`;
 
     return this.http.get(url)
       .map((response: Response) => {
@@ -29,7 +31,7 @@ export class ProdutoService {
   }
 
   getProduto(id: string): Observable<Produto> {
-    var url = `http://localhost:9000/produtos/${id}`;
+    var url = `${URL_BASE}/${id}`;
 
     return this.http.get(url)
       .map((response: Response) => {
